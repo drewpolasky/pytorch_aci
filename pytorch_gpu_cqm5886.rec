@@ -11,6 +11,8 @@ export LC_ALL=C
 %post
     # commands to be executed inside container during bootstrap
     # add python and install some packages
+    export CUDA_HOME=/usr/local/cuda
+
     apt-get update -y && apt-get upgrade -y 
     apt install -y build-essential
     apt-get install -y git cmake gcc binutils \
@@ -64,7 +66,33 @@ export LC_ALL=C
 
 	#/opt/conda/bin/conda install -c conda-forge opencv
 
-	opt/conda/bin/pip install torchsummary opencv-python==4.0.0.21
+	#P-GNN dependencies
+	#opt/conda/bin/pip install torchsummary opencv-python==4.0.0.21 torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric networkx tensorboardX
+
+	opt/conda/bin/pip install absl-py==0.2.2 \
+		astor==0.6.2 \
+		bleach==1.5.0 \
+		decorator==4.3.0 \
+		enum34==1.1.6 \
+		funcsigs==1.0.2 \
+		futures==3.2.0 \
+		gast==0.2.0 \
+		grpcio==1.12.1 \
+		html5lib==0.9999999 \
+		Markdown==2.6.11 \
+		mock==2.0.0 \
+		numpy==1.14.5 \
+		pbr==4.0.4 \
+		protobuf==3.6.0 \
+		scikit-learn==0.19.1 \
+		scipy==1.1.0 \
+		six==1.11.0 \
+		sklearn==0.0 \
+		tensorboard==1.8.0 \
+		tensorflow==1.8.0 \
+		termcolor==1.1.0 \
+		Werkzeug==0.14.1
+		gensim==0.13.3 \
 
     #pip3 install torch==1.0.0+cu90 torchvision==0.4.1 -f https://download.pytorch.org/whl/torch_stable.html
 
